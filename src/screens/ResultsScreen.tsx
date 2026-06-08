@@ -13,10 +13,11 @@ export default function ResultsScreen() {
       <Text
         style={{
           color: "white",
-          fontSize: 30,
+          fontSize: 32,
+          fontWeight: "bold",
         }}
       >
-        Taste Profile
+        Your Taste Profile
       </Text>
     </View>
   );

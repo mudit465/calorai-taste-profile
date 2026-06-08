@@ -1,9 +1,9 @@
 import React from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, Image } from "react-native";
 import Swiper from "react-native-deck-swiper";
 import { foods } from "../data/foods";
 
-export default function SwipeScreen() {
+export default function SwipeScreen({ navigation }: any) {
   const [currentIndex, setCurrentIndex] = React.useState(0);
 
   return (
@@ -26,17 +26,28 @@ export default function SwipeScreen() {
           cards={foods}
           backgroundColor="transparent"
           stackSize={3}
-          cardVerticalMargin={50}
+          cardVerticalMargin={40}
           onSwiped={() => {
             setCurrentIndex((prev) => prev + 1);
+          }}
+          onSwipedAll={() => {
+            navigation.navigate("Results");
           }}
           renderCard={(card) => {
             if (!card) return null;
 
             return (
               <View style={styles.card}>
-                <Text style={styles.emoji}>{card.emoji}</Text>
+                <Image
+                  source={{ uri: card.image }}
+                  style={styles.foodImage}
+                />
+
                 <Text style={styles.title}>{card.name}</Text>
+
+                <Text style={styles.category}>
+                  {card.category}
+                </Text>
               </View>
             );
           }}
@@ -80,24 +91,34 @@ const styles = StyleSheet.create({
   },
 
   card: {
-    height: 450,
+    height: 580,
     borderRadius: 25,
     backgroundColor: "#111",
+    padding: 15,
     justifyContent: "center",
     alignItems: "center",
     borderWidth: 1,
     borderColor: "#333",
   },
 
-  emoji: {
-    fontSize: 90,
+  foodImage: {
+    width: 300,
+    height: 380,
+    borderRadius: 20,
   },
 
   title: {
     color: "white",
     fontSize: 28,
     fontWeight: "700",
-    marginTop: 20,
+    marginTop: 15,
+  },
+
+  category: {
+    color: "#888",
+    fontSize: 16,
+    marginTop: 6,
+    textTransform: "capitalize",
   },
 
   buttonContainer: {
