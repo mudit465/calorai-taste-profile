@@ -1,7 +1,7 @@
 import React from "react";
-import { View, Text, StyleSheet, Image } from "react-native";
 import Swiper from "react-native-deck-swiper";
 import { foods } from "../data/foods";
+import { View, Text, StyleSheet, Image, TouchableOpacity } from "react-native";
 
 export default function SwipeScreen({ navigation }: any) {
   const [currentIndex, setCurrentIndex] = React.useState(0);
@@ -56,11 +56,22 @@ export default function SwipeScreen({ navigation }: any) {
 
       {/* Bottom Buttons */}
       <View style={styles.buttonContainer}>
-        <Text style={styles.button}>❌</Text>
-        <Text style={styles.button}>❓</Text>
-        <Text style={styles.button}>⭐</Text>
-        <Text style={styles.button}>❤️</Text>
-      </View>
+  <TouchableOpacity style={styles.circleButton}>
+    <Text style={styles.buttonIcon}>❌</Text>
+  </TouchableOpacity>
+
+  <TouchableOpacity style={styles.circleButton}>
+    <Text style={styles.buttonIcon}>❓</Text>
+  </TouchableOpacity>
+
+  <TouchableOpacity style={styles.circleButton}>
+    <Text style={styles.buttonIcon}>⭐</Text>
+  </TouchableOpacity>
+
+  <TouchableOpacity style={styles.circleButton}>
+    <Text style={styles.buttonIcon}>❤️</Text>
+  </TouchableOpacity>
+</View>
     </View>
   );
 }
@@ -130,4 +141,18 @@ const styles = StyleSheet.create({
   button: {
     fontSize: 40,
   },
+  circleButton: {
+  width: 60,
+  height: 60,
+  borderRadius: 30,
+  backgroundColor: "#1a1a1a",
+  justifyContent: "center",
+  alignItems: "center",
+  borderWidth: 1,
+  borderColor: "#333",
+},
+
+buttonIcon: {
+  fontSize: 28,
+},
 });
