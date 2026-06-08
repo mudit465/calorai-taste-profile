@@ -1,7 +1,7 @@
 import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 
-export default function IntroScreen() {
+export default function IntroScreen({ navigation }: any) {
   return (
     <LinearGradient
       colors={["#000000", "#0a0f0a", "#000000"]}
@@ -22,7 +22,11 @@ export default function IntroScreen() {
           This helps us recommend meals you'll love eating.
         </Text>
 
-        <TouchableOpacity style={styles.button}>
+<TouchableOpacity
+  style={styles.button}
+  onPress={() => navigation.navigate("Swipe")}
+>
+
           <Text style={styles.buttonText}>Start Swiping</Text>
         </TouchableOpacity>
 
