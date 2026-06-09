@@ -1,5 +1,6 @@
 import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
+import BottomNav from "../components/BottomNav";
 
 export default function IntroScreen({ navigation }: any) {
   return (
@@ -35,6 +36,7 @@ export default function IntroScreen({ navigation }: any) {
     </LinearGradient>
   );
 }
+<BottomNav />
 
 const styles = StyleSheet.create({
   container: {
