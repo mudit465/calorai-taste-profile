@@ -1,6 +1,7 @@
 import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import BottomNav from "../components/BottomNav";
+import { Ionicons } from "@expo/vector-icons";
 
 export default function IntroScreen({ navigation }: any) {
   return (
@@ -8,7 +9,17 @@ export default function IntroScreen({ navigation }: any) {
       colors={["#000000", "#0a0f0a", "#000000"]}
       style={styles.container}
     >
-      <Text style={styles.header}>Design Your Food Plan</Text>
+      <View style={styles.headerRow}>
+  <Ionicons
+    name="arrow-back"
+    size={28}
+    color="white"
+  />
+
+  <Text style={styles.header}>
+    Design Your Food Plan
+  </Text>
+</View>
 
       <View style={styles.card}>
         <Text style={styles.emoji}>😊</Text>
@@ -33,23 +44,31 @@ export default function IntroScreen({ navigation }: any) {
 
         <Text style={styles.footer}>Takes about 2 minutes.</Text>
       </View>
+    <BottomNav />
     </LinearGradient>
   );
 }
-<BottomNav />
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    padding: 20,
-    justifyContent: "center",
-  },
+
+  flex: 1,
+
+  padding: 20,
+
+  justifyContent: "space-between",
+
+  paddingTop: 80,
+
+  paddingBottom: 20,
+
+},
   header: {
-    color: "white",
-    fontSize: 32,
-    fontWeight: "700",
-    marginBottom: 25,
-  },
+  color: "white",
+  fontSize: 32,
+  fontWeight: "700",
+  marginLeft: 12,
+},
   card: {
     backgroundColor: "rgba(255,255,255,0.05)",
     borderRadius: 25,
@@ -93,4 +112,13 @@ const styles = StyleSheet.create({
     textAlign: "center",
     marginTop: 20,
   },
+  headerRow: {
+
+  flexDirection: "row",
+
+  alignItems: "center",
+
+  marginBottom: 25,
+
+},
 });
